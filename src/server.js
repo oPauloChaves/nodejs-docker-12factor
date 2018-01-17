@@ -23,15 +23,18 @@ const UploadRoute = {
   path: "/upload",
   options: {
     async handler(request, h) {
-      const { image } = request.payload
-
-      const fileDetails = await Utils.uploader(image, fileOptions)
-
-      return fileDetails
+      try {
+        const { image } = request.payload
+        return await Utils.uploader(image, fileOptions)
+      } catch (err) {
+        return err
+      }
     },
     payload: {
       output: "stream",
       parse: true,
+      allow: "multipart/form-data",
+      // maxBytes: 104857600, // 100MB
     },
   },
 }
