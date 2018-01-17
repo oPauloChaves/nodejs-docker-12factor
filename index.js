@@ -1,14 +1,14 @@
-const MongoClient = require('mongodb').MongoClient
-const assert = require('assert')
+require("dotenv").config()
+const MongoClient = require("mongodb").MongoClient
+const assert = require("assert")
 
-const URL = 'mongodb://localhost:27017'
-const DB_NAME = 'myproject'
+const { MONGODB_URI, MONGODB_DBNAME } = process.env
 
-MongoClient.connect(URL, (err, client) => {
-    assert.equal(null, err)
-    console.log('Connected successfully to the server')    
+MongoClient.connect(MONGODB_URI, (err, client) => {
+  assert.equal(null, err)
+  console.log("Connected to MongoDB!")
 
-    const db = client.db(DB_NAME)
+  const db = client.db(MONGODB_DBNAME)
 
-    client.close()
+  client.close()
 })
