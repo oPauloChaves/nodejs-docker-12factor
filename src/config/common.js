@@ -1,3 +1,4 @@
+const Path = require("path")
 const Joi = require("joi")
 const Package = require("../../package")
 
@@ -15,6 +16,7 @@ if (error) {
 }
 
 module.exports = {
+  rootDir: Path.resolve(__dirname, "..", ".."),
   env: envVars.NODE_ENV,
   isDev: envVars.NODE_ENV === "development",
   isProd: envVars.NODE_ENV === "production",

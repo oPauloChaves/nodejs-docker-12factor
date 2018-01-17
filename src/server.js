@@ -7,7 +7,7 @@ const Config = require("./config")
 const { uploader, imageFilter } = require("./utils")
 
 const fileOptions = {
-  dest: Config.server.options.routes.files.relativeTo,
+  dest: `${Config.rootDir}/uploads`,
   fileFilter: imageFilter,
 }
 

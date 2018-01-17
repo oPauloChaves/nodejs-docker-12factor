@@ -1,4 +1,3 @@
-const Path = require("path")
 const Joi = require("joi")
 
 const envVarsSchema = Joi.object({
@@ -13,19 +12,17 @@ if (error) {
   throw new Error(`Server Config validation error: ${error.message}`)
 }
 
-module.exports = {
-  server: {
-    options: {
-      port: envVars.PORT,
-      debug: {
-        log: ["*"],
-        request: ["*"],
-      },
-      routes: {
-        files: {
-          relativeTo: Path.resolve(__dirname, "../..", "uploads"),
-        },
+module.exports = ({ rootDir }) => ({
+  options: {
+    port: envVars.PORT,
+    debug: {
+      log: ["*"],
+      request: ["*"],
+    },
+    routes: {
+      files: {
+        relativeTo: rootDir,
       },
     },
   },
-}
+})
