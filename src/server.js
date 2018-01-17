@@ -15,8 +15,7 @@ const GetCatsRoute = {
   method: "GET",
   path: "/cats/{path*}",
   handler(request, h) {
-    const { path } = request.params
-    return h.file(path)
+    return h.file(`uploads/${request.params.path}`)
   },
 }
 
