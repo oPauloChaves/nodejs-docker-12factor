@@ -2,11 +2,13 @@ require("dotenv").config()
 const Hapi = require("hapi")
 const Inert = require("inert")
 const Good = require("good")
+const Boom = require("boom")
 const Config = require("./config")
-const Utils = require("./utils")
+const { uploader, imageFilter } = require("./utils")
 
 const fileOptions = {
   dest: Config.server.options.routes.files.relativeTo,
+  fileFilter: imageFilter,
 }
 
 const GetCatsRoute = {
@@ -25,9 +27,9 @@ const UploadRoute = {
     async handler(request, h) {
       try {
         const { image } = request.payload
-        return await Utils.uploader(image, fileOptions)
+        return await uploader(image, fileOptions)
       } catch (err) {
-        return err
+        return Boom.badRequest(err.message, err)
       }
     },
     payload: {

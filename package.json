@@ -7,6 +7,7 @@
     "dev": "nodemon ./src/index.js"
   },
   "dependencies": {
+    "boom": "^7.1.1",
     "dotenv": "^4.0.0",
     "good": "^8.0.0-rc1",
     "good-console": "^6.4.1",
