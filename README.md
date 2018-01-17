@@ -30,3 +30,4 @@ curl \
 
 * [The Twelve-Factor App](https://12factor.net/)
 * [git-flow cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/)
+* [Handling File Uploads with Hapi.js](https://scotch.io/bar-talk/handling-file-uploads-with-hapi-js)
