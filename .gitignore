@@ -1,0 +1,26 @@
+uploads/
+
+# Environment Configuration
+.env
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Dependency directory
+node_modules
+
+# Debug log from npm
+npm-debug.log
+
+# IntelliJ IDE ignore
+.idea
+
+# Visual Studio Code
+.history
+.tern-port
